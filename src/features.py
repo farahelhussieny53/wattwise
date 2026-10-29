@@ -1,6 +1,11 @@
 import pandas as pd
 
+# خصائص بالأرقام المطلقة (kWh) - بنستخدمها في الـ Baselines وبناء الجدول
 FEATURES = ["lag_1", "lag_2", "lag_7", "roll_7", "roll_30", "dow", "month"]
+
+# خصائص نسبية (مقسومة على متوسط آخر 30 يوم) - دي اللي الموديل بيتدرب عليها
+REL_FEATURES = ["r_lag_1", "r_lag_2", "r_lag_7", "r_roll_7", "dow", "month"]
+
 
 def build_features(daily):
     # نكمّل الأيام الناقصة عشان lag_1 يبقى فعلاً "امبارح"
@@ -15,6 +20,17 @@ def build_features(daily):
     df["month"] = df.index.month
     # نشيل الصفوف اللي ناقصها هدف أو خصائص
     return df.dropna()
+
+
+def to_relative(df):
+    """نحول الخصائص لنسب من متوسط آخر 30 يوم، فالموديل يتعلم النمط مش الحجم."""
+    out = pd.DataFrame(index=df.index)
+    for c in ["lag_1", "lag_2", "lag_7", "roll_7"]:
+        out["r_" + c] = df[c] / df["roll_30"]
+    out["dow"] = df["dow"]
+    out["month"] = df["month"]
+    return out
+
 
 def chrono_split(df, train_ratio=0.8):
     cut = int(len(df) * train_ratio)

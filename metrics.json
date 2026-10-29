@@ -1,5 +1,6 @@
 {
   "best_model": "Random Forest",
+  "best_mae_pct": 17.6,
   "train_period": [
     "2007-01-06",
     "2010-01-29"
@@ -23,15 +24,15 @@
     },
     {
       "Model": "Linear Regression",
-      "MAE": 4.33,
-      "RMSE": 5.86,
-      "R2": 0.442
+      "MAE": 4.3,
+      "RMSE": 5.91,
+      "R2": 0.432
     },
     {
       "Model": "Random Forest",
-      "MAE": 4.21,
-      "RMSE": 5.63,
-      "R2": 0.486
+      "MAE": 4.34,
+      "RMSE": 5.74,
+      "R2": 0.465
     }
   ]
 }

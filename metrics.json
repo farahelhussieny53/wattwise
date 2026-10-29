@@ -1,0 +1,37 @@
+{
+  "best_model": "Random Forest",
+  "train_period": [
+    "2007-01-06",
+    "2010-01-29"
+  ],
+  "test_period": [
+    "2010-01-30",
+    "2010-11-26"
+  ],
+  "results": [
+    {
+      "Model": "Baseline: yesterday",
+      "MAE": 4.99,
+      "RMSE": 6.91,
+      "R2": 0.224
+    },
+    {
+      "Model": "Baseline: last week",
+      "MAE": 5.83,
+      "RMSE": 7.95,
+      "R2": -0.026
+    },
+    {
+      "Model": "Linear Regression",
+      "MAE": 4.33,
+      "RMSE": 5.86,
+      "R2": 0.442
+    },
+    {
+      "Model": "Random Forest",
+      "MAE": 4.21,
+      "RMSE": 5.63,
+      "R2": 0.486
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+venv/
+__pycache__/
+*.pyc
+data/household_power_consumption.txt
+data/hourly_cache.csv
+plot_*.png
